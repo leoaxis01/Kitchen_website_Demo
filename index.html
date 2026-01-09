@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Gourmet Kitchen | Delicious Food Made Fresh</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --deep-red: #8B0000;
+            --dark-brown: #3E2723;
+            --olive-green: #556B2F;
+            --cream-bg: #FFFDF9;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cream-bg);
+            color: var(--dark-brown);
+            scroll-behavior: smooth;
+        }
+        .font-heading {
+            font-family: 'Poppins', sans-serif;
+        }
+        .bg-deep-red { background-color: var(--deep-red); }
+        .text-deep-red { color: var(--deep-red); }
+        .bg-olive { background-color: var(--olive-green); }
+        .text-olive { color: var(--olive-green); }
+        .border-olive { border-color: var(--olive-green); }
+        
+        .nav-glass {
+            background: rgba(255, 253, 249, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        .menu-tab-active {
+            background-color: var(--deep-red);
+            color: white;
+        }
+
+        .food-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .custom-shadow {
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 nav-glass py-4 px-6 md:px-12 flex justify-between items-center">
+        <div class="text-2xl font-heading font-800 tracking-tighter text-deep-red flex items-center gap-2">
+            <i data-lucide="utensils-crosses" class="w-8 h-8"></i>
+            GOURMET KITCHEN
+        </div>
+        
+        <div class="hidden md:flex space-x-8 items-center text-sm font-semibold uppercase tracking-wider">
+            <a href="#home" class="hover:text-deep-red transition-colors">Home</a>
+            <a href="#menu" class="hover:text-deep-red transition-colors">Menu</a>
+            <a href="#specials" class="hover:text-deep-red transition-colors">Specials</a>
+            <a href="#contact" class="hover:text-deep-red transition-colors">Contact</a>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <button class="bg-deep-red text-white px-5 py-2 rounded-full text-sm font-bold hover:opacity-90 transition-opacity">
+                ORDER ONLINE
+            </button>
+            <button class="md:hidden" id="mobileMenuBtn"><i data-lucide="menu" class="w-6 h-6"></i></button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img 
+                src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2000" 
+                alt="Delicious Food" 
+                class="w-full h-full object-cover"
+            >
+            <div class="absolute inset-0 bg-black/50"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-6 max-w-4xl text-white">
+            <h1 class="font-heading text-5xl md:text-7xl font-800 mb-6 leading-tight">
+                Delicious Food Made <br> <span class="text-white opacity-90">Fresh Every Day</span>
+            </h1>
+            <p class="text-lg md:text-xl mb-10 text-gray-200 max-w-2xl mx-auto font-light">
+                Dine in, takeaway, or order online with ease. Experience premium flavors crafted with love and fresh ingredients.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#menu" class="bg-deep-red text-white px-10 py-4 rounded-lg font-bold text-lg hover:scale-105 transition-transform">
+                    View Menu
+                </a>
+                <a href="#contact" class="bg-white text-dark-brown px-10 py-4 rounded-lg font-bold text-lg hover:scale-105 transition-transform">
+                    Order Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="text-center p-6 space-y-4">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-red-50 text-deep-red rounded-full">
+                    <i data-lucide="leaf" class="w-8 h-8"></i>
+                </div>
+                <h3 class="font-heading text-xl">Fresh Ingredients</h3>
+                <p class="text-sm text-gray-500">Sourced daily from local organic farms for the best taste.</p>
+            </div>
+            <div class="text-center p-6 space-y-4">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-olive/10 text-olive rounded-full">
+                    <i data-lucide="shield-check" class="w-8 h-8"></i>
+                </div>
+                <h3 class="font-heading text-xl">Hygienic Kitchen</h3>
+                <p class="text-sm text-gray-500">We maintain the highest standards of cleanliness and safety.</p>
+            </div>
+            <div class="text-center p-6 space-y-4">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-yellow-50 text-yellow-700 rounded-full">
+                    <i data-lucide="zap" class="w-8 h-8"></i>
+                </div>
+                <h3 class="font-heading text-xl">Quick Service</h3>
+                <p class="text-sm text-gray-500">Fast preparation without compromising on quality.</p>
+            </div>
+            <div class="text-center p-6 space-y-4">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-50 text-blue-700 rounded-full">
+                    <i data-lucide="wallet" class="w-8 h-8"></i>
+                </div>
+                <h3 class="font-heading text-xl">Affordable Prices</h3>
+                <p class="text-sm text-gray-500">Premium dining experience that doesn't break the bank.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-24 px-6 md:px-12 bg-[#FFFDF9]">
+        <div class="text-center mb-12">
+            <span class="text-olive font-bold tracking-widest text-sm uppercase">Taste the Excellence</span>
+            <h2 class="font-heading text-4xl md:text-5xl mt-2 mb-4">Our Delicious Menu</h2>
+            <div class="w-20 h-1 bg-deep-red mx-auto"></div>
+        </div>
+
+        <!-- Menu Tabs -->
+        <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-12">
+            <button onclick="filterMenu('starters')" class="menu-tab px-8 py-3 rounded-full font-bold border-2 border-transparent transition-all menu-tab-active" data-category="starters">Starters</button>
+            <button onclick="filterMenu('main')" class="menu-tab px-8 py-3 rounded-full font-bold border-2 border-transparent transition-all bg-white shadow-sm" data-category="main">Main Course</button>
+            <button onclick="filterMenu('desserts')" class="menu-tab px-8 py-3 rounded-full font-bold border-2 border-transparent transition-all bg-white shadow-sm" data-category="desserts">Desserts</button>
+            <button onclick="filterMenu('beverages')" class="menu-tab px-8 py-3 rounded-full font-bold border-2 border-transparent transition-all bg-white shadow-sm" data-category="beverages">Beverages</button>
+        </div>
+
+        <!-- Menu Grid -->
+        <div id="menuGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            <!-- Items injected via JS -->
+        </div>
+    </section>
+
+    <!-- Special Dishes -->
+    <section id="specials" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+                <div>
+                    <h2 class="font-heading text-4xl text-dark-brown">Today's Specials</h2>
+                    <p class="text-gray-500 mt-2">Highly recommended by our Head Chef</p>
+                </div>
+                <a href="#menu" class="text-deep-red font-bold flex items-center gap-2 group">
+                    View full menu <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="group relative rounded-2xl overflow-hidden custom-shadow">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=800" alt="Special 1" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
+                        <span class="text-white bg-olive px-3 py-1 rounded text-xs font-bold w-fit mb-2">MOST POPULAR</span>
+                        <h3 class="text-white font-heading text-2xl">Signature Pepperoni Pizza</h3>
+                        <p class="text-gray-300 text-sm mt-1">Hand-tossed crust with spicy pepperoni.</p>
+                    </div>
+                </div>
+                <div class="group relative rounded-2xl overflow-hidden custom-shadow">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=800" alt="Special 2" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
+                        <span class="text-white bg-deep-red px-3 py-1 rounded text-xs font-bold w-fit mb-2">NEW ARRIVAL</span>
+                        <h3 class="text-white font-heading text-2xl">Exotic Garden Salad</h3>
+                        <p class="text-gray-300 text-sm mt-1">Fresh greens with balsamic glaze.</p>
+                    </div>
+                </div>
+                <div class="group relative rounded-2xl overflow-hidden custom-shadow">
+                    <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7bb7445?q=80&w=800" alt="Special 3" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
+                        <span class="text-white bg-yellow-600 px-3 py-1 rounded text-xs font-bold w-fit mb-2">BEST SELLER</span>
+                        <h3 class="text-white font-heading text-2xl">Fluffy Honey Pancakes</h3>
+                        <p class="text-gray-300 text-sm mt-1">Served with maple syrup and berries.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="py-24 bg-[#FAF8F5]">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="font-heading text-center text-4xl mb-16">What Our Guests Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl custom-shadow space-y-4">
+                    <div class="flex text-yellow-400"><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i></div>
+                    <p class="text-gray-600 italic">"The best burger I've had in years! The meat was juicy and the ingredients were clearly very fresh. Highly recommended."</p>
+                    <div class="flex items-center gap-4 pt-4 border-t">
+                        <div class="w-10 h-10 rounded-full bg-deep-red flex items-center justify-center text-white font-bold">RK</div>
+                        <div>
+                            <h4 class="font-bold text-sm">Rahul Khanna</h4>
+                            <p class="text-xs text-gray-400">Regular Customer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl custom-shadow space-y-4">
+                    <div class="flex text-yellow-400"><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i></div>
+                    <p class="text-gray-600 italic">"Amazing ambiance and even better food. The pasta was cooked perfectly al dente. Will be coming back with family soon!"</p>
+                    <div class="flex items-center gap-4 pt-4 border-t">
+                        <div class="w-10 h-10 rounded-full bg-olive flex items-center justify-center text-white font-bold">SM</div>
+                        <div>
+                            <h4 class="font-bold text-sm">Sneha Murthy</h4>
+                            <p class="text-xs text-gray-400">Food Blogger</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl custom-shadow space-y-4">
+                    <div class="flex text-yellow-400"><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i></div>
+                    <p class="text-gray-600 italic">"I usually order takeaway and the food always arrives hot and beautifully packaged. The brownie is to die for!"</p>
+                    <div class="flex items-center gap-4 pt-4 border-t">
+                        <div class="w-10 h-10 rounded-full bg-yellow-600 flex items-center justify-center text-white font-bold">AD</div>
+                        <div>
+                            <h4 class="font-bold text-sm">Arjun Das</h4>
+                            <p class="text-xs text-gray-400">Local Resident</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto bg-dark-brown rounded-3xl overflow-hidden flex flex-col md:flex-row text-white">
+            <div class="p-12 md:w-1/2 space-y-8">
+                <h2 class="font-heading text-4xl">Visit Us or <br> Order Online</h2>
+                <div class="space-y-6">
+                    <div class="flex gap-4">
+                        <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-deep-red"><i data-lucide="map-pin"></i></div>
+                        <div>
+                            <h4 class="font-bold">Location</h4>
+                            <p class="text-gray-400">45 Foodie Lane, Gourmet Street, New Delhi - 110001</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-olive"><i data-lucide="phone"></i></div>
+                        <div>
+                            <h4 class="font-bold">Contact</h4>
+                            <p class="text-gray-400">+91 98765 43210 <br> info@gourmetkitchen.com</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-yellow-500"><i data-lucide="clock"></i></div>
+                        <div>
+                            <h4 class="font-bold">Opening Hours</h4>
+                            <p class="text-gray-400">Mon - Sun: 11:00 AM - 11:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-4 flex flex-wrap gap-4">
+                    <button class="bg-deep-red text-white px-8 py-4 rounded-xl font-bold flex items-center gap-3 hover:scale-105 transition-transform">
+                        <i data-lucide="shopping-bag"></i> ORDER NOW
+                    </button>
+                    <button class="bg-[#25D366] text-white px-8 py-4 rounded-xl font-bold flex items-center gap-3 hover:scale-105 transition-transform">
+                        <i data-lucide="message-circle"></i> WHATSAPP ORDER
+                    </button>
+                </div>
+            </div>
+            <div class="md:w-1/2 min-h-[400px]">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1000" alt="Restaurant Interior" class="w-full h-full object-cover">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-gray-100 bg-white px-6 md:px-12">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-center md:text-left">
+                <div class="text-2xl font-heading font-800 text-deep-red mb-2">GOURMET KITCHEN</div>
+                <p class="text-sm text-gray-500 max-w-xs">Elevating your dining experience with fresh flavors and traditional hospitality since 2010.</p>
+            </div>
+            
+            <div class="flex space-x-6">
+                <a href="#" class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:text-deep-red hover:border-deep-red transition-all"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                <a href="#" class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:text-deep-red hover:border-deep-red transition-all"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                <a href="#" class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:text-deep-red hover:border-deep-red transition-all"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-50 text-center text-xs text-gray-400 tracking-widest flex flex-col md:flex-row justify-between items-center gap-4">
+            <p>&copy; 2024 THE GOURMET KITCHEN. ALL RIGHTS RESERVED.</p>
+            <div class="flex space-x-4">
+                <a href="#" class="hover:text-deep-red">Privacy Policy</a>
+                <a href="#" class="hover:text-deep-red">Terms of Service</a>
+            </div>
+        </div>
+        <!-- Developer Attribution -->
+<div class="mt-12 pt-6 border-t border-gray-100 text-center text-xs tracking-widest text-gray-400">
+    Developed & Maintained by
+    <a href="https://www.leoaxis.com/" target="_blank"
+       class="font-semibold text-deep-red hover:underline transition-all">
+        www.leoaxis.com
+    </a>
+</div>
+
+    </footer>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Menu Data
+        const menuItems = [
+            { id: 1, category: 'starters', name: 'Crispy Calamari', price: '₹450', desc: 'Lightly battered and fried tender calamari with lemon aioli.' },
+            { id: 2, category: 'starters', name: 'Bruschetta Pomodoro', price: '₹320', desc: 'Toasted baguette with tomato, basil, and balsamic.' },
+            { id: 3, category: 'starters', name: 'Chicken Wings', price: '₹480', desc: 'Choice of Honey BBQ or Spicy Buffalo sauce.' },
+            { id: 4, category: 'main', name: 'Truffle Mushroom Pasta', price: '₹750', desc: 'Creamy fettuccine with seasonal mushrooms and truffle oil.' },
+         
